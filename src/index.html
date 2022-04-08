@@ -13,11 +13,11 @@
 <section class="library">
   <header class="header library__header">
     <div class="container">
-      <img src="img/logo.svg" alt="Логотип Big Brother">
+      <img class="logo" src="img/logo.svg" alt="Логотип Big Brother">
 
       <button class="header__btn-add">Добавить книгу</button>
 
-      <button class="header__btn header__btn_search">поиск</button>
+      <button class="header__btn header__btn_search" aria-label="Поиск">поиск</button>
     </div>
   </header>
 
@@ -37,10 +37,10 @@
 
         <ul class="fields__list fields__list_sort">
           <li class="fields__item">
-            <button class="fields__list-bth">от большего</button>
+            <button class="fields__list-btn">от большего</button>
           </li>
           <li class="fields__item">
-            <button class="fields__list-bth">от меньшего</button>
+            <button class="fields__list-btn">от меньшего</button>
           </li>
         </ul>
       </div>
@@ -147,9 +147,9 @@
 <section class="book">
   <header class="header book__header">
     <div class="container">
-      <button class="header__btn_back">назад</button>
+      <button class="header__btn_back" aria-label="Назад">назад</button>
 
-      <button class="header__btn header__btn_delete">удалить</button>
+      <button class="header__btn header__btn_delete" aria-label="Удалить">удалить</button>
     </div>
   </header>
 
@@ -196,9 +196,9 @@
 <section class="add">
   <header class="header add__header">
     <div class="container">
-      <button class="header__btn_back">назад</button>
+      <button class="header__btn_back" aria-label="Назад">назад</button>
 
-      <button class="header__btn header__btn_search">поиск</button>
+      <button class="header__btn header__btn_search" aria-label="Поиск">поиск</button>
     </div>
   </header>
 
@@ -215,7 +215,7 @@
         <input class="add__text" type="text"  name="author" id="author">
 
         <label class="add__label" for="description">Описание</label>
-        <textarea class="add__text add__textarea" type="text"  name="description" id="description"></textarea>
+        <textarea class="add__text add__textarea" name="description" id="description"></textarea>
       </fieldset>
 
       <fieldset class="add__fieldset">
@@ -262,19 +262,19 @@
           <legend>Поставьте оценку</legend>
 
           <div class="stars__list">
-            <input class="stars__star "type="radio" id="star-rating-5" name="rating" value="5">
+            <input class="stars__star" type="radio" id="star-rating-5" name="rating" value="5">
             <label class="stars__icon" for="star-rating-5"></label>
 
-            <input class="stars__star "type="radio" id="star-rating-4" name="rating" value="4">
+            <input class="stars__star" type="radio" id="star-rating-4" name="rating" value="4">
             <label class="stars__icon" for="star-rating-4"></label>
 
-            <input class="stars__star "type="radio" id="star-rating-3" name="rating" value="3">
+            <input class="stars__star" type="radio" id="star-rating-3" name="rating" value="3">
             <label class="stars__icon" for="star-rating-3"></label>
 
-            <input class="stars__star "type="radio" id="star-rating-2" name="rating" value="2">
+            <input class="stars__star" type="radio" id="star-rating-2" name="rating" value="2">
             <label class="stars__icon" for="star-rating-2"></label>
 
-            <input class="stars__star "type="radio" id="star-rating-1" name="rating" value="1">
+            <input class="stars__star" type="radio" id="star-rating-1" name="rating" value="1">
             <label class="stars__icon" for="star-rating-1"></label>
 
           </div>
@@ -286,10 +286,6 @@
       </div>
     </div>
   </form>
-
-
-
-
 </section>
 </body>
 </html>
