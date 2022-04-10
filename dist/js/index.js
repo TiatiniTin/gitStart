@@ -42,12 +42,15 @@ var __webpack_exports__ = {};
 "use strict";
 /* harmony import */ var navigo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(123);
 
-var library = document.querySelector('library');
+var library = document.querySelector('.library');
 
-var _book = document.querySelector('book');
+var _book = document.querySelector('.book');
 
-var _add = document.querySelector('add');
+var _add = document.querySelector('.add');
 
+var btnsAdd = document.querySelectorAll('.library__add-btn', '.header__btn-add');
+var btnBack1 = document.querySelector('.add .header__btn_back');
+var btnBack2 = document.querySelector('.book .header__btn_back');
 var router = new navigo__WEBPACK_IMPORTED_MODULE_0__('/', {
   hash: true
 });
@@ -76,6 +79,19 @@ router.on({
     _add.classList.remove('hidden');
   }
 }).resolve();
+btnsAdd.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    router.navigate('add');
+  });
+});
+btnBack1.addEventListener('click', function () {
+  console.log('back');
+  router.navigate('/');
+});
+btnBack2.addEventListener('click', function () {
+  console.log('back');
+  router.navigate('/');
+});
 }();
 /******/ })()
 ;

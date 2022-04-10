@@ -653,6 +653,15 @@ fieldset {
   background-image: url("../img/search.svg");
 }
 
+.header__btn_back {
+  background-image: url("../img/arrow.svg");
+  background-position: center left;
+}
+
+.header__btn_delete {
+  background-image: url("../img/delete.svg");
+}
+
 .library__header {
   margin-bottom: 15px;
 }
@@ -680,6 +689,7 @@ fieldset {
   display: flex;
   flex-wrap: wrap;
   gap: 15px 26px;
+  margin-bottom: 90px;
 }
 
 .library__add-btn {
@@ -782,6 +792,82 @@ fieldset {
 
 .card__rating-star:last-child {
   margin-right: 0;
+}
+
+.book__header {
+  margin-bottom: 16px;
+}
+
+.book__wrapper {
+  height: 250px;
+  width: 168px;
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 auto 20px auto;
+}
+
+.book__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.book__content {
+  margin-bottom: 90px;
+}
+
+.book__title {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 4px;
+}
+
+.book__author {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  margin-bottom: 15px;
+  color: #EAEAEA;
+}
+
+.book__rating {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.book__rating-star {
+  width: 36px;
+  height: 36px;
+  margin-right: 1px;
+}
+
+.book__rating-star:last-child {
+  margin-right: 0;
+}
+
+.book__subtitle {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  margin-bottom: 4px;
+}
+
+.book__description {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+}
+
+.book__label {
+  width: 320px;
+  height: 50px;
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
 }
 
 body {
