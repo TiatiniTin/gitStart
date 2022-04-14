@@ -532,7 +532,7 @@ template {
 html {
   position: relative;
   box-sizing: border-box;
-  min-width: 360px;
+  min-width: 320px;
 }
 
 *,
@@ -560,6 +560,12 @@ body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
 }
 
 button {
@@ -621,6 +627,10 @@ fieldset {
   display: none;
 }
 
+section {
+  margin-bottom: 90px;
+}
+
 .header {
   padding: 8px 0;
 }
@@ -663,7 +673,21 @@ fieldset {
 }
 
 .library__header {
+  position: relative;
   margin-bottom: 15px;
+}
+
+.library__header:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 174px;
+  height: 174px;
+  left: -46px;
+  top: -55px;
+  background-color: #FF0000;
+  filter: blur(200px);
+  z-index: 1;
 }
 
 .library__titles {
@@ -689,7 +713,7 @@ fieldset {
   display: flex;
   flex-wrap: wrap;
   gap: 15px 26px;
-  margin-bottom: 90px;
+  max-width: 780px;
 }
 
 .library__add-btn {
@@ -700,15 +724,74 @@ fieldset {
   color: #F87C09;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
+.fields {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.fields__block {
+  position: relative;
+  z-index: 3;
+}
+
+.fields__btn {
+  display: flex;
   align-items: center;
-  width: 100%;
-  height: 74px;
-  background-color: #000000;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 130%;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 0;
+  transition: color 0.36s ease-in-out;
+}
+
+.fields__btn:hover {
+  color: #FF922E;
+}
+
+.fields__list {
+  display: none;
+  position: absolute;
+  min-width: 100%;
+  top: calc(100% + 3px);
+  background-color: #FFFFFF;
+  color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.fields__list_active {
+  display: block;
+}
+
+.fields__list_sort {
+  left: 0;
+}
+
+.fields__list_filter {
+  right: 0;
+}
+
+.fields__item {
+  margin-bottom: 15px;
+}
+
+.fields__item:last-child {
+  margin-bottom: 0;
+}
+
+.fields__list-btn {
+  background-color: #EAEAEA;
+  border-radius: 16px;
+  border: 0;
+  padding: 8px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
 }
 
 .card {
@@ -716,7 +799,7 @@ fieldset {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   color: #000000;
-  min-width: 336px;
+  max-width: 336px;
   padding: 8px 8px 10px;
   display: flex;
   gap: 10px;
@@ -799,7 +882,6 @@ fieldset {
 }
 
 .book__wrapper {
-  height: 250px;
   width: 168px;
   position: relative;
   flex-shrink: 0;
@@ -808,14 +890,9 @@ fieldset {
 
 .book__img {
   width: 100%;
-  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 6px;
-}
-
-.book__content {
-  margin-bottom: 90px;
 }
 
 .book__title {
@@ -823,6 +900,10 @@ fieldset {
   font-size: 26px;
   line-height: 32px;
   margin-bottom: 4px;
+}
+
+.book__contant {
+  color: #FFFFFF;
 }
 
 .book__author {
@@ -849,7 +930,7 @@ fieldset {
 }
 
 .book__subtitle {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 12px;
   line-height: 130%;
   margin-bottom: 4px;
@@ -862,20 +943,258 @@ fieldset {
 }
 
 .book__label {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   height: 50px;
   border-radius: 30px;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
+  background-color: #FFFFFF;
+  border: 0;
+}
+
+.book__label_img {
+  display: none;
+}
+
+.search {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: -82px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.search_active {
+  transform: translateY(124px);
+}
+
+.search__form {
+  position: relative;
+}
+
+.search__input {
+  width: 100%;
+  height: 40px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 3px 60px 3px 15px;
+  border: 0;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+}
+
+.search__input:focus {
+  outline-color: #6B6B6B;
+}
+
+.search__buttons {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search__button {
+  color: #000000;
+  background-color: transparent;
+  border: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.search__close-btn {
+  background-image: url(../img/close.png);
+  background-position: center left;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  background-color: #000000;
+  right: 0;
+  padding: 0 20px;
 }
 
 body {
   font-family: montserrat, sans-serif;
 }
 
+@media (min-width: 768px) {
+  .container {
+    padding: 0 35px;
+  }
+
+  .header {
+    padding: 20px 0 15px;
+  }
+
+  .header {
+    padding: 30px 0 25px;
+  }
+
+  .library__header:before {
+    content: none;
+  }
+
+  .book__header {
+    margin-bottom: 3px;
+  }
+
+  .book__wrapper {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .search {
+    width: 462px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 45px;
+  }
+
+  .header__logo {
+    height: 66px;
+    margin-right: auto;
+  }
+
+  .header__btn-add {
+    display: block;
+    width: 320px;
+    height: 50px;
+    padding: 10px;
+    background-color: #F87C09;
+    border: 0;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    margin-right: 102px;
+  }
+
+  .library__footer {
+    display: none;
+  }
+
+  .fields__block {
+    min-width: 142px;
+  }
+
+  .fields__btn {
+    font-size: 14px;
+  }
+
+  .fields__list {
+    top: calc(100% + 20px);
+  }
+
+  .fields__list_filter {
+    display: block;
+  }
+
+  .book__header {
+    margin-bottom: 11px;
+  }
+
+  .book__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  .book__wrapper {
+    width: 249px;
+    margin-left: 55px;
+  }
+
+  .book__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  .book__author {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+  }
+
+  .book__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+  }
+
+  .book__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+  }
+
+  .book__label_img {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .search {
+    width: 580px;
+  }
+
+  .footer__book {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    max-width: 377px;
+  }
+
+  .book__header {
+    margin-bottom: 21px;
+  }
+}
+
 @media (max-width: 375px) {
   .library__list-container {
     padding: 0 12px;
+  }
+
+  .fields__list_sort {
+    left: -8px;
+  }
+
+  .fields__list_filter {
+    right: -8px;
+  }
+}
+
+@media (max-height: 500px) {
+  .footer {
+    width: auto;
+    padding: 20px;
+    right: 0;
+    background-color: transparent;
+  }
+
+  .footer__btn_book {
+    padding: 18px;
   }
 }

@@ -48,9 +48,10 @@ var _book = document.querySelector('.book');
 
 var _add = document.querySelector('.add');
 
-var btnsAdd = document.querySelectorAll('.library__add-btn', '.header__btn-add');
-var btnBack1 = document.querySelector('.add .header__btn_back');
-var btnBack2 = document.querySelector('.book .header__btn_back');
+var addBtns = document.querySelectorAll('.library__add-btn', '.header__btn-add');
+var backBtns = document.querySelectorAll('.header__btn_back');
+var btnSearch = document.querySelectorAll('.header__btn_search');
+var search = document.querySelector('.search');
 var router = new navigo__WEBPACK_IMPORTED_MODULE_0__('/', {
   hash: true
 });
@@ -79,18 +80,35 @@ router.on({
     _add.classList.remove('hidden');
   }
 }).resolve();
-btnsAdd.forEach(function (btn) {
+addBtns.forEach(function (btn) {
   btn.addEventListener('click', function () {
+    search.classList.remove('search_active');
     router.navigate('add');
   });
 });
-btnBack1.addEventListener('click', function () {
-  console.log('back');
-  router.navigate('/');
+backBtns.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    search.classList.remove('search_active');
+    router.navigate('/');
+  });
 });
-btnBack2.addEventListener('click', function () {
-  console.log('back');
-  router.navigate('/');
+
+var closeSearch = function closeSearch(_ref) {
+  var target = _ref.target;
+
+  if (target.closest('.search, .header__btn_search')) {
+    return;
+  }
+
+  search.classList.remove('search_active');
+  document.body.removeEventListener('click', closeSearch);
+};
+
+btnSearch.forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    search.classList.add('search_active');
+    document.body.addEventListener('click', closeSearch);
+  });
 });
 }();
 /******/ })()

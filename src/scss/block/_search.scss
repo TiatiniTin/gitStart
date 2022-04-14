@@ -1,0 +1,74 @@
+.search {
+  $height: 40px;
+  $top: 8px;
+
+  width: 100%;
+
+  @include tablet {
+    $top: 20px;
+    width: 462px;
+  }
+
+  @include laptop {
+    $top: 42px;
+    width: 580px;
+  }
+
+  position: absolute;
+  //top: 8px;
+  right: 0;
+  top: -$top - $height;
+  transition: transform .5s ease-in-out;
+
+  &_active {
+    transform: translateY($top * 2 + $height);
+  }
+
+
+
+  &__form {
+  position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    height: $height;
+    background-color: $light;
+    border-radius: 20px;
+    padding: 3px 60px 3px 15px;
+    border: 0;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    &:focus {
+      outline-color: $secondaryDark;
+    }
+
+  }
+
+  &__buttons {
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__button {
+    color: $dark;
+    background-color: transparent;
+    border: 0;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__close-btn {
+    background-image: url(../img/close.png);
+    background-position: center left;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border: 0;
+  }
+}

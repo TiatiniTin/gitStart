@@ -1,6 +1,25 @@
 .library {
   &__header {
+    position: relative;
     margin-bottom: 15px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 174px;
+      height: 174px;
+      left: -46px;
+      top: -55px;
+      background-color: #FF0000;
+      filter: blur(200px);
+      z-index: 1;
+
+      @include tablet {
+        content: none;
+      }
+    }
+
   }
 
   &__titles {
@@ -34,7 +53,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 15px 26px;
-    margin-bottom: 90px;
+    max-width: 780px;
   }
 
   &__item {
@@ -47,5 +66,11 @@
     width: 44px;
     height: 44px;
     color: $primary;
+  }
+
+  &__footer {
+    @include laptop {
+      display: none;
+    }
   }
 }
