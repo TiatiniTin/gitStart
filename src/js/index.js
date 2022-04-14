@@ -7,6 +7,7 @@ const addBtns = document.querySelectorAll('.library__add-btn', '.header__btn-add
 const backBtns = document.querySelectorAll('.header__btn_back');
 const btnSearch = document.querySelectorAll('.header__btn_search');
 const search = document.querySelector('.search');
+const closeBtn = document.querySelector('.search__close-btn');
 
 const router = new Navigo( '/',{
   hash: true,
@@ -16,22 +17,27 @@ const closeAllPages = () => {
   library.classList.add('hidden');
   book.classList.add('hidden');
   add.classList.add('hidden');
-
 };
 
 router.on({
   '/':() => {
     closeAllPages();
+    search.classList.remove('search_active');
+    document.body.removeEventListener('click', closeSearch);
     library.classList.remove('hidden');
   },
   'book': () => {
     closeAllPages();
+    search.classList.remove('search_active');
+    document.body.removeEventListener('click', closeSearch);
     book.classList.remove('hidden');
 
 
   },
   'add': () => {
     closeAllPages();
+    search.classList.remove('search_active');
+    document.body.removeEventListener('click', closeSearch);
     add.classList.remove('hidden');
 
 
@@ -41,14 +47,12 @@ router.on({
 
 addBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    search.classList.remove('search_active');
     router.navigate('add');
   });
 });
 
 backBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    search.classList.remove('search_active');
     router.navigate('/');
   });
 });
@@ -67,6 +71,11 @@ btnSearch.forEach(btn => {
     search.classList.add('search_active');
     document.body.addEventListener('click', closeSearch);
   });
+});
+
+closeBtn.addEventListener('click', () => {
+  search.classList.remove('search_active');
+  document.body.removeEventListener('click', closeSearch);
 });
 
 
