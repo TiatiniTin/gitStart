@@ -6,12 +6,12 @@
 
   @include tablet {
     $top: 20px;
-    width: 462px;
+    max-width: 462px;
   }
 
   @include laptop {
     $top: 42px;
-    width: 580px;
+    max-width: 580px;
   }
 
   position: absolute;
@@ -24,10 +24,9 @@
     transform: translateY($top * 2 + $height);
   }
 
-
-
   &__form {
-  position: relative;
+    position: relative;
+    flex-grow: 1;
   }
 
   &__input {
@@ -42,7 +41,6 @@
     &:focus {
       outline-color: $secondaryDark;
     }
-
   }
 
   &__buttons {
@@ -64,11 +62,17 @@
   }
 
   &__close-btn {
-    background-image: url(../img/close.png);
+    background-image: url("../img/close.svg");
     background-position: center left;
     height: 24px;
     width: 24px;
     background-color: transparent;
+    background-size: 24px;
     border: 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: end;
   }
 }

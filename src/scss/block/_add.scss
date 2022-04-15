@@ -1,0 +1,98 @@
+.add {
+  &__header {
+    margin-bottom: 14px;
+  }
+
+  &__form {
+    padding-bottom: 90px;
+  }
+
+  &__container {
+    @media(max-width: 375px) {
+      padding: 0 12px;
+    }
+
+    @include laptop {
+      max-width: 698px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 8px;
+
+    @include laptop {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 49px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    margin-bottom: 15px;
+  }
+
+  &__step {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    color: $secondary;
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    @include laptop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    padding-left: 8px;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    background-color: $light;
+    border: 1px solid $secondary;
+    border-radius: 10px;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: none;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+  }
+
+  &__btn {
+    width: 320px;
+    height: 50px;
+    background-color: $primary;
+    border: 0;
+    border-radius: 8px;
+    color: $light;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+}
